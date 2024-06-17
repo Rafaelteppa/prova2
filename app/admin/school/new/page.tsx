@@ -1,5 +1,4 @@
-
-
+"use client"
 
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
@@ -21,25 +20,29 @@ const FormSchema = z.object({
     name: z.string().min(2, {
         message: "Necessário mais que dois caracteres.",
     }),
+    email: z.string().email({
+        message: "Digite o email correto"
+    }),
 })
 
-export default function SaveBoock() {
+export default function SaveSchool() {
     const form = useForm<z.infer<typeof FormSchema>>({
         resolver: zodResolver(FormSchema),
         defaultValues: { //valor que aparece por padrão
-            name: "Cursinho",
+            name: "escola",
+           
         },
     })
 
-    async function onSubmit(boock: z.infer<typeof FormSchema>) {
+    async function onSubmit(schools: z.infer<typeof FormSchema>) {
         const requestOptions= {
             method: "POST",
             headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify(boock)
+            body: JSON.stringify(schools)
         }
-        const response = await fetch("https://server20241-six.vercel.app/courses", requestOptions)
+        const response = await fetch("https://server20241-six.vercel.app/escola", requestOptions)
         form.reset();
-        alert("Livro Cadastrado!")
+        alert("ESCOLA CADASTRADA COM SUCESSO !")
     }
 
     return (
@@ -52,7 +55,20 @@ export default function SaveBoock() {
                         <FormItem>
                             <FormLabel>Nome:</FormLabel>
                             <FormControl>
-                                <Input placeholder="Digite o nome do livro" {...field} />
+                                <Input placeholder="Digite o nome da escola" {...field} />
+                            </FormControl>
+                            <FormMessage />
+                        </FormItem>
+                    )}
+                />
+                <FormField
+                    control={form.control}
+                    name="email"
+                    render={({ field }) => (
+                        <FormItem>
+                            <FormLabel>Email:</FormLabel>
+                            <FormControl>
+                                <Input placeholder="Digite o email da escola" {...field} />
                             </FormControl>
                             <FormMessage />
                         </FormItem>
