@@ -7,7 +7,7 @@ export default function School() {
         <div className="w-full flex flex-col  mt-6">
             <div className="flex justify-center mb-6">
                 <a href="/admin/school/new">
-                    <Button>Cadastrar Livro</Button>
+                    <Button>Cadastrar Escola</Button>
                 </a>
             </div>
             <ListSchool />
