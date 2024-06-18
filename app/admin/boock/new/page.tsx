@@ -28,7 +28,7 @@ export default function SaveBoock() {
     const form = useForm<z.infer<typeof FormSchema>>({
         resolver: zodResolver(FormSchema),
         defaultValues: { //valor que aparece por padrão
-            titulo: "Livro",
+            titulo: "",
         },
     })
 

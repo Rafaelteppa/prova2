@@ -9,7 +9,7 @@ import { MenuSheet } from "./MenuSheet";
 export default function NavBar() {
     return (
         <div className="flex justify-between p-6 border-b-2">
-            <img  src="/img/utfpr2.png" className="hidden lg:block size-[7%] lg:size-[10%]"/>    
+            <img  src="/img/logo.jpeg" className="hidden lg:block size-[7%] lg:size-[10%]"/>    
              
              <MenuSheet/>
              
@@ -21,7 +21,7 @@ export default function NavBar() {
                 <DropdownMenu>
                     <DropdownMenuTrigger asChild>
                         <Avatar>
-                            <AvatarImage src="https://avatars.githubusercontent.com/u/72134861?v=4" alt="@shadcn" />
+                            <AvatarImage src="https://w7.pngwing.com/pngs/909/571/png-transparent-spider-man-spider-man-comics-heroes-superhero-thumbnail.png" alt="@shadcn" />
                             <AvatarFallback>LB</AvatarFallback>
                         </Avatar>
                     </DropdownMenuTrigger>

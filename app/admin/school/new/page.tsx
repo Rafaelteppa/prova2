@@ -27,7 +27,7 @@ export default function SaveSchool() {
     const form = useForm<z.infer<typeof FormSchema>>({
         resolver: zodResolver(FormSchema),
         defaultValues: { //valor que aparece por padrão
-            name: "ESCOLA",
+            name: "",
         },
     })
 
