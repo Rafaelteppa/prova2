@@ -38,7 +38,7 @@ export default function SavePatient() {
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(patient)
         }
-        const response = await fetch("https://server20241-nine.vercel.app/patient", requestOptions)
+        const response = await fetch("https://server20241-nine.vercel.app/patients", requestOptions)
         form.reset();
         alert("Paciente Cadastrado!")
     }
