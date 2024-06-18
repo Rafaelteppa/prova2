@@ -11,23 +11,23 @@ import {
 import { revalidatePath } from "next/cache";
   
   
-  interface IBoock {
+  interface IPatient {
     id:number,
-    titulo:string,
-    descricao:string
+    name:string,
+    age:string
   }
 
-  export default async function ListBoock() {
-    const boocks = await list()
+  export default async function ListPatient() {
+    const patients = await list()
     async function list(){
-     revalidatePath("/admin/boock")
-     const response = await fetch("https://server20241-nine.vercel.app/book");
+     revalidatePath("/admin/patient")
+     const response = await fetch("https://server20241-nine.vercel.app/patient");
      return response.json();
     }
 
     return (
       <Table>
-        <TableCaption>Lista de Livros</TableCaption>
+        <TableCaption>Lista de Pacientes</TableCaption>
         <TableHeader>
           <TableRow>
             <TableHead className="w-[100px]">ID</TableHead>
@@ -36,11 +36,11 @@ import { revalidatePath } from "next/cache";
           </TableRow>
         </TableHeader>
         <TableBody>
-          {boocks.map((item:IBoock) => (
+          {patients.map((item:IPatient) => (
             <TableRow key={item.id}>
               <TableCell className="font-medium">{item.id}</TableCell>
-              <TableCell>{item.titulo}</TableCell>
-              <TableCell>{item.descricao}</TableCell>
+              <TableCell>{item.name}</TableCell>
+              <TableCell>{item.age}</TableCell>
             </TableRow>
           ))}
         </TableBody>

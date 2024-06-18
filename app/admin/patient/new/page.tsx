@@ -18,29 +18,29 @@ import {
 import { Input } from "@/components/ui/input"
 
 const FormSchema = z.object({
-    titulo: z.string().min(2, {
+    name: z.string().min(2, {
         message: "Necessário mais que dois caracteres.",
     }),
-    descricao: z.string()
+    age: z.string()
 })
 
-export default function SaveBoock() {
+export default function SavePatient() {
     const form = useForm<z.infer<typeof FormSchema>>({
         resolver: zodResolver(FormSchema),
         defaultValues: { //valor que aparece por padrão
-            titulo: "",
+            name: "",
         },
     })
 
-    async function onSubmit(boock: z.infer<typeof FormSchema>) {
+    async function onSubmit(patient: z.infer<typeof FormSchema>) {
         const requestOptions= {
             method: "POST",
             headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify(boock)
+            body: JSON.stringify(patient)
         }
-        const response = await fetch("https://server20241-nine.vercel.app/book", requestOptions)
+        const response = await fetch("https://server20241-nine.vercel.app/patient", requestOptions)
         form.reset();
-        alert("Livro Cadastrado!")
+        alert("Paciente Cadastrado!")
     }
 
     return (
@@ -48,12 +48,12 @@ export default function SaveBoock() {
             <form onSubmit={form.handleSubmit(onSubmit)} className="w-2/3 space-y-6">
                 <FormField
                     control={form.control}
-                    name="titulo"
+                    name="name"
                     render={({ field }) => (
                         <FormItem>
                             <FormLabel>Nome:</FormLabel>
                             <FormControl>
-                                <Input placeholder="Digite o nome do livro" {...field} />
+                                <Input placeholder="Digite o nome do Paciente" {...field} />
                             </FormControl>
                             <FormMessage />
                         </FormItem>
