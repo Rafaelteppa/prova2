@@ -18,16 +18,17 @@ import {
 import { Input } from "@/components/ui/input"
 
 const FormSchema = z.object({
-    name: z.string().min(2, {
+    titulo: z.string().min(2, {
         message: "Necessário mais que dois caracteres.",
     }),
+    descricao: z.string()
 })
 
 export default function SaveBoock() {
     const form = useForm<z.infer<typeof FormSchema>>({
         resolver: zodResolver(FormSchema),
         defaultValues: { //valor que aparece por padrão
-            name: "Livro",
+            titulo: "Livro",
         },
     })
 
@@ -37,7 +38,7 @@ export default function SaveBoock() {
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(boock)
         }
-        const response = await fetch("https://server20241-six.vercel.app/livros", requestOptions)
+        const response = await fetch("https://server20241-nine.vercel.app/book", requestOptions)
         form.reset();
         alert("Livro Cadastrado!")
     }
@@ -47,7 +48,7 @@ export default function SaveBoock() {
             <form onSubmit={form.handleSubmit(onSubmit)} className="w-2/3 space-y-6">
                 <FormField
                     control={form.control}
-                    name="name"
+                    name="titulo"
                     render={({ field }) => (
                         <FormItem>
                             <FormLabel>Nome:</FormLabel>
@@ -56,6 +57,22 @@ export default function SaveBoock() {
                             </FormControl>
                             <FormMessage />
                         </FormItem>
+
+                        
+                    )}
+                />
+                <FormField
+                    control={form.control}
+                    name="descricao"
+                    render={({ field }) => (
+                        <FormItem>
+                            <FormLabel>Descricao:</FormLabel>
+                            <FormControl>
+                                <Input placeholder="Digite a descricao do livro" {...field} />
+                            </FormControl>
+                            <FormMessage />
+                        </FormItem>
+                        
                     )}
                 />
                 <Button type="submit">Salvar</Button>

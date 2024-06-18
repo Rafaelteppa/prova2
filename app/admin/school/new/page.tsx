@@ -37,7 +37,7 @@ export default function SaveSchool() {
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(scholl)
         }
-        const response = await fetch("https://server20241-six.vercel.app/scholls", requestOptions)
+        const response = await fetch("https://server20241-nine.vercel.app/school", requestOptions)
         form.reset();
         alert("Escola Cadastrada!")
     }

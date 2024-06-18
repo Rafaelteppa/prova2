@@ -13,15 +13,15 @@ import { revalidatePath } from "next/cache";
   
   interface IBoock {
     id:number,
-    name:string,
-    email:string
+    titulo:string,
+    descricao:string
   }
 
   export default async function ListBoock() {
     const boocks = await list()
     async function list(){
      revalidatePath("/admin/boock")
-     const response = await fetch("https://server20241-nine.vercel.app/courses");
+     const response = await fetch("https://server20241-nine.vercel.app/book");
      return response.json();
     }
 
@@ -39,8 +39,8 @@ import { revalidatePath } from "next/cache";
           {boocks.map((item:IBoock) => (
             <TableRow key={item.id}>
               <TableCell className="font-medium">{item.id}</TableCell>
-              <TableCell>{item.name}</TableCell>
-              <TableCell>{item.email}</TableCell>
+              <TableCell>{item.titulo}</TableCell>
+              <TableCell>{item.descricao}</TableCell>
             </TableRow>
           ))}
         </TableBody>

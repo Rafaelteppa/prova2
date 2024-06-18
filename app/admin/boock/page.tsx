@@ -6,7 +6,7 @@ export default function Boock() {
     return (
         <div className="w-full flex flex-col  mt-6">
             <div className="flex justify-center mb-6">
-                <a href="/admin/student/new">
+                <a href="/admin/boock/new">
                     <Button>Cadastrar Livro</Button>
                 </a>
             </div>
