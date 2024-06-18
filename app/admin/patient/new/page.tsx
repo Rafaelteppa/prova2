@@ -63,7 +63,7 @@ export default function SavePatient() {
                 />
                 <FormField
                     control={form.control}
-                    name="descricao"
+                    nome="descricao"
                     render={({ field }) => (
                         <FormItem>
                             <FormLabel>Descricao:</FormLabel>
