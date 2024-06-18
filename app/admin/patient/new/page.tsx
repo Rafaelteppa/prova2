@@ -21,7 +21,7 @@ const FormSchema = z.object({
     name: z.string().min(2, {
         message: "Necessário mais que dois caracteres.",
     }),
-    age: z.string()
+    descricao: z.string()
 })
 
 export default function SavePatient() {
@@ -38,7 +38,7 @@ export default function SavePatient() {
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(patient)
         }
-        const response = await fetch("https://server20241-nine.vercel.app/patients", requestOptions)
+        const response = await fetch("https://server20241-nine.vercel.app/patient", requestOptions)
         form.reset();
         alert("Paciente Cadastrado!")
     }
@@ -63,7 +63,7 @@ export default function SavePatient() {
                 />
                 <FormField
                     control={form.control}
-                    nome="descricao"
+                    name="descricao"
                     render={({ field }) => (
                         <FormItem>
                             <FormLabel>Descricao:</FormLabel>
