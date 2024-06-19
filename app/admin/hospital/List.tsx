@@ -13,7 +13,7 @@ import { revalidatePath } from "next/cache";
   
   interface IHospital {
     id:number,
-    nome:string,
+    address:string,
   }
 
   export default async function ListHospital() {
@@ -30,14 +30,14 @@ import { revalidatePath } from "next/cache";
         <TableHeader>
           <TableRow>
             <TableHead className="w-[100px]">ID</TableHead>
-            <TableHead>Nome</TableHead>
+            <TableHead>Endereco</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
           {hospitais.map((item:IHospital) => (
             <TableRow key={item.id}>
               <TableCell className="font-medium">{item.id}</TableCell>
-              <TableCell>{item.nome}</TableCell>
+              <TableCell>{item.address}</TableCell>
              
             </TableRow>
           ))}

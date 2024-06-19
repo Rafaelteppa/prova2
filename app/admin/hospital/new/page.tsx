@@ -18,7 +18,7 @@ import {
 import { Input } from "@/components/ui/input"
 
 const FormSchema = z.object({
-    name: z.string().min(2, {
+    address: z.string().min(2, {
         message: "Necessário mais que dois caracteres.",
     }),
 })
@@ -27,7 +27,7 @@ export default function SaveHospital() {
     const form = useForm<z.infer<typeof FormSchema>>({
         resolver: zodResolver(FormSchema),
         defaultValues: { //valor que aparece por padrão
-            name: "",
+           address: "",
         },
     })
 
@@ -47,10 +47,10 @@ export default function SaveHospital() {
             <form onSubmit={form.handleSubmit(onSubmit)} className="w-2/3 space-y-6">
                 <FormField
                     control={form.control}
-                    name="name"
+                    name="address"
                     render={({ field }) => (
                         <FormItem>
-                            <FormLabel>Nome:</FormLabel>
+                            <FormLabel>Endereço:</FormLabel>
                             <FormControl>
                                 <Input placeholder="Digite o nome do Hospital" {...field} />
                             </FormControl>

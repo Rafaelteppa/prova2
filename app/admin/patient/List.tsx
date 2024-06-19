@@ -14,14 +14,14 @@ import { revalidatePath } from "next/cache";
   interface IPatient {
     id:number,
     name:string,
-    age:string
+    age:number,
   }
 
   export default async function ListPatient() {
     const patients = await list()
     async function list(){
      revalidatePath("/admin/patient")
-     const response = await fetch("https://server20241-nine.vercel.app/patients");
+     const response = await fetch("https://server20241-nine.vercel.app/patient");
      return response.json();
     }
 
@@ -32,7 +32,7 @@ import { revalidatePath } from "next/cache";
           <TableRow>
             <TableHead className="w-[100px]">ID</TableHead>
             <TableHead>Nome</TableHead>
-            <TableHead>Email</TableHead>
+            <TableHead>IDADE</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
