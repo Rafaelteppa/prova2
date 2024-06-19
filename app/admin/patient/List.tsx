@@ -14,7 +14,7 @@ import { revalidatePath } from "next/cache";
   interface IPatient {
     id:number,
     name:string,
-    age:number,
+    age:string,
   }
 
   export default async function ListPatient() {

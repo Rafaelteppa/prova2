@@ -21,7 +21,7 @@ const FormSchema = z.object({
     name: z.string().min(2, {
         message: "Necessário mais que dois caracteres.",
     }),
-    descricao: z.string()
+    age: z.string()
 })
 
 export default function SavePatient() {
@@ -29,6 +29,7 @@ export default function SavePatient() {
         resolver: zodResolver(FormSchema),
         defaultValues: { //valor que aparece por padrão
             name: "",
+            age: "",
         },
     })
 
@@ -63,12 +64,12 @@ export default function SavePatient() {
                 />
                 <FormField
                     control={form.control}
-                    name="descricao"
+                    name="age"
                     render={({ field }) => (
                         <FormItem>
-                            <FormLabel>Descricao:</FormLabel>
+                            <FormLabel>digite sua idade:</FormLabel>
                             <FormControl>
-                                <Input placeholder="Digite a descricao do livro" {...field} />
+                                <Input placeholder="Digite somente numeros" {...field} />
                             </FormControl>
                             <FormMessage />
                         </FormItem>
