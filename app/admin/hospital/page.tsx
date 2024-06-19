@@ -1,16 +1,16 @@
 import { Button } from "@/components/ui/button";
-import ListSchool  from "./List";
+import ListHospital  from "./List";
 
 
-export default function School() {
+export default function Hospital() {
     return (
         <div className="w-full flex flex-col  mt-6">
             <div className="flex justify-center mb-6">
-                <a href="/admin/school/new">
-                    <Button>Cadastrar Escola</Button>
+                <a href="/admin/hospital/new">
+                    <Button>Cadastrar Hospital</Button>
                 </a>
             </div>
-            <ListSchool />
+            <ListHospital />
         </div>
     )
 }

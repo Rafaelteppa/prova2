@@ -23,7 +23,7 @@ const FormSchema = z.object({
     }),
 })
 
-export default function SaveSchool() {
+export default function SaveHospital() {
     const form = useForm<z.infer<typeof FormSchema>>({
         resolver: zodResolver(FormSchema),
         defaultValues: { //valor que aparece por padrão
@@ -31,15 +31,15 @@ export default function SaveSchool() {
         },
     })
 
-    async function onSubmit(scholl: z.infer<typeof FormSchema>) {
+    async function onSubmit(hospital: z.infer<typeof FormSchema>) {
         const requestOptions= {
             method: "POST",
             headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify(scholl)
+            body: JSON.stringify(hospital)
         }
         const response = await fetch("https://server20241-nine.vercel.app/school", requestOptions)
         form.reset();
-        alert("Escola Cadastrada!")
+        alert("Hospital Cadastrado!")
     }
 
     return (
@@ -52,7 +52,7 @@ export default function SaveSchool() {
                         <FormItem>
                             <FormLabel>Nome:</FormLabel>
                             <FormControl>
-                                <Input placeholder="Digite o nome da escola" {...field} />
+                                <Input placeholder="Digite o nome do Hospital" {...field} />
                             </FormControl>
                             <FormMessage />
                         </FormItem>
